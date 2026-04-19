@@ -8,6 +8,7 @@ import ProductViewer3D from '@/components/ProductViewer3D';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, ArrowLeft, Check, Box, Image } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { formatINR } from '@/lib/currency';
 
 function calculatePrice(basePrice: number, config: CustomConfig, components: { id: string; priceModifier: number }[]): number {
   const wood = WOOD_TYPES.find(w => w.id === config.woodType);
@@ -59,6 +60,9 @@ const CustomizePage: React.FC = () => {
     return calculatePrice(product.basePrice, config, product.components);
   }, [product, config]);
 
+  // Determine subtype from product tags (skip the style tag — first tag is style)
+  const subtype = useMemo(() => product?.tags[1], [product]);
+
   if (!product) {
     return (
       <div className="min-h-screen pt-20 flex items-center justify-center">
@@ -82,7 +86,7 @@ const CustomizePage: React.FC = () => {
     setAdded(true);
     toast({
       title: 'Added to cart',
-      description: `${product.name} — $${price.toLocaleString()}`,
+      description: `${product.name} — ${formatINR(price)}`,
     });
     setTimeout(() => setAdded(false), 2000);
   };
@@ -136,7 +140,7 @@ const CustomizePage: React.FC = () => {
                   </div>
                 </div>
               }>
-                <ProductViewer3D config={config} category={product.category} />
+                <ProductViewer3D config={config} category={product.category} subtype={subtype} />
               </Suspense>
             ) : (
               <PreviewPanel image={product.image} productName={product.name} config={config} />
@@ -162,7 +166,7 @@ const CustomizePage: React.FC = () => {
               {added ? (
                 <><Check size={18} /> Added to Cart</>
               ) : (
-                <><ShoppingCart size={18} /> Add to Cart — ${price.toLocaleString()}</>
+                <><ShoppingCart size={18} /> Add to Cart — {formatINR(price)}</>
               )}
             </Button>
           </div>
