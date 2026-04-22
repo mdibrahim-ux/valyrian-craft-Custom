@@ -6,7 +6,7 @@ import CustomizationPanel from '@/components/CustomizationPanel';
 import PreviewPanel from '@/components/PreviewPanel';
 import ProductViewer3D from '@/components/ProductViewer3D';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, ArrowLeft, Check, Box, Image } from 'lucide-react';
+import { ShoppingCart, ArrowLeft, Check, Box, Image, RotateCw, Pause } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { formatINR } from '@/lib/currency';
 
@@ -54,6 +54,7 @@ const CustomizePage: React.FC = () => {
 
   const [added, setAdded] = useState(false);
   const [viewMode, setViewMode] = useState<'3d' | 'photo'>('3d');
+  const [autoRotate, setAutoRotate] = useState(true);
 
   const price = useMemo(() => {
     if (!product) return 0;
@@ -105,7 +106,7 @@ const CustomizePage: React.FC = () => {
           {/* Left: Preview */}
           <div className="space-y-4">
             {/* View mode toggle */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <button
                 onClick={() => setViewMode('3d')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
@@ -126,7 +127,21 @@ const CustomizePage: React.FC = () => {
               >
                 <Image size={14} /> Photo
               </button>
-              <span className="text-[10px] text-muted-foreground ml-2">
+              {viewMode === '3d' && (
+                <button
+                  onClick={() => setAutoRotate(r => !r)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                    autoRotate
+                      ? 'bg-primary/10 text-primary border border-primary/30'
+                      : 'text-muted-foreground hover:text-foreground border border-border'
+                  }`}
+                  title="Toggle 360° auto-rotate"
+                >
+                  {autoRotate ? <Pause size={14} /> : <RotateCw size={14} />}
+                  {autoRotate ? '360° On' : '360° Off'}
+                </button>
+              )}
+              <span className="text-[10px] text-muted-foreground ml-1">
                 {viewMode === '3d' ? 'Drag to rotate · Scroll to zoom' : ''}
               </span>
             </div>
@@ -140,7 +155,7 @@ const CustomizePage: React.FC = () => {
                   </div>
                 </div>
               }>
-                <ProductViewer3D config={config} category={product.category} subtype={subtype} />
+                <ProductViewer3D config={config} category={product.category} subtype={subtype} autoRotate={autoRotate} />
               </Suspense>
             ) : (
               <PreviewPanel image={product.image} productName={product.name} config={config} />
