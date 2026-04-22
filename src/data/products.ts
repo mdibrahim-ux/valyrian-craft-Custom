@@ -115,14 +115,14 @@ function createProducts(): Product[] {
   const products: Product[] = [];
   
   const seatingItems = [
-    { name: 'Aether Lounge Chair', base: 74999, desc: 'Sculptural comfort meets modern design', tags: ['modern', 'lounge'], featured: true },
-    { name: 'Nordic Armchair', base: 62499, desc: 'Clean Scandinavian lines with plush cushioning', tags: ['scandinavian', 'armchair'] },
-    { name: 'Titan Recliner', base: 107999, desc: 'Power recliner with memory foam and heating', tags: ['luxury', 'recliner'], featured: true },
-    { name: 'Meridian Sofa', base: 207999, desc: 'Three-seater sofa with modular configuration', tags: ['modern', 'sofa'], featured: true },
-    { name: 'Zenith Bar Stool', base: 28999, desc: 'Adjustable height with swivel base', tags: ['industrial', 'stool'] },
-    { name: 'Cascade Bench', base: 49999, desc: 'Upholstered bench with solid wood frame', tags: ['rustic', 'bench'] },
-    { name: 'Vortex Accent Chair', base: 53999, desc: 'Statement piece with curved silhouette', tags: ['vintage', 'accent'] },
-    { name: 'Nexus Sectional', base: 290999, desc: 'L-shaped modular sectional for large spaces', tags: ['modern', 'sectional'] },
+    { name: 'Aether Lounge Chair', base: 18999, desc: 'Sculptural comfort meets modern design', tags: ['modern', 'lounge'], featured: true },
+    { name: 'Nordic Armchair', base: 14999, desc: 'Clean Scandinavian lines with plush cushioning', tags: ['scandinavian', 'armchair'] },
+    { name: 'Titan Recliner', base: 27999, desc: 'Power recliner with memory foam and heating', tags: ['luxury', 'recliner'], featured: true },
+    { name: 'Meridian Sofa', base: 49999, desc: 'Three-seater sofa with modular configuration', tags: ['modern', 'sofa'], featured: true },
+    { name: 'Zenith Bar Stool', base: 5999, desc: 'Adjustable height with swivel base', tags: ['industrial', 'stool'] },
+    { name: 'Cascade Bench', base: 11999, desc: 'Upholstered bench with solid wood frame', tags: ['rustic', 'bench'] },
+    { name: 'Vortex Accent Chair', base: 12999, desc: 'Statement piece with curved silhouette', tags: ['vintage', 'accent'] },
+    { name: 'Nexus Sectional', base: 69999, desc: 'L-shaped modular sectional for large spaces', tags: ['modern', 'sectional'] },
   ];
 
   seatingItems.forEach((item, i) => {
@@ -137,22 +137,22 @@ function createProducts(): Product[] {
       tags: item.tags,
       components: [
         { id: 'legs', name: 'Legs', priceModifier: 0, included: true },
-        { id: 'cushion', name: 'Premium Cushion', priceModifier: 12500, included: true },
-        { id: 'armrest', name: 'Armrests', priceModifier: 16500, included: i < 4 },
-        { id: 'headrest', name: 'Headrest', priceModifier: 9999, included: false },
-        { id: 'lumbar', name: 'Lumbar Support', priceModifier: 6499, included: false },
+        { id: 'cushion', name: 'Premium Cushion', priceModifier: 2999, included: true },
+        { id: 'armrest', name: 'Armrests', priceModifier: 3499, included: i < 4 },
+        { id: 'headrest', name: 'Headrest', priceModifier: 1999, included: false },
+        { id: 'lumbar', name: 'Lumbar Support', priceModifier: 1499, included: false },
       ],
     });
   });
 
   const tableItems = [
-    { name: 'Monolith Dining Table', base: 157999, desc: 'Live-edge dining table for 8', tags: ['rustic', 'dining'], featured: true },
-    { name: 'Prism Coffee Table', base: 57999, desc: 'Geometric base with tempered glass top', tags: ['modern', 'coffee'] },
-    { name: 'Apex Executive Desk', base: 132999, desc: 'Spacious desk with cable management', tags: ['office', 'desk'], featured: true },
-    { name: 'Halo Side Table', base: 32999, desc: 'Circular marble-top side table', tags: ['luxury', 'side'] },
-    { name: 'Terra Console', base: 74999, desc: 'Narrow console with storage drawers', tags: ['modern', 'console'] },
-    { name: 'Forge Workbench', base: 99999, desc: 'Industrial-style standing desk', tags: ['industrial', 'desk'] },
-    { name: 'Eclipse Nesting Tables', base: 45999, desc: 'Set of 3 nesting tables', tags: ['scandinavian', 'nesting'] },
+    { name: 'Monolith Dining Table', base: 34999, desc: 'Live-edge dining table for 8', tags: ['rustic', 'dining'], featured: true },
+    { name: 'Prism Coffee Table', base: 12999, desc: 'Geometric base with tempered glass top', tags: ['modern', 'coffee'] },
+    { name: 'Apex Executive Desk', base: 28999, desc: 'Spacious desk with cable management', tags: ['office', 'desk'], featured: true },
+    { name: 'Halo Side Table', base: 6999, desc: 'Circular marble-top side table', tags: ['luxury', 'side'] },
+    { name: 'Terra Console', base: 16999, desc: 'Narrow console with storage drawers', tags: ['modern', 'console'] },
+    { name: 'Forge Workbench', base: 21999, desc: 'Industrial-style standing desk', tags: ['industrial', 'desk'] },
+    { name: 'Eclipse Nesting Tables', base: 9999, desc: 'Set of 3 nesting tables', tags: ['scandinavian', 'nesting'] },
   ];
 
   tableItems.forEach((item, i) => {
@@ -168,19 +168,19 @@ function createProducts(): Product[] {
       components: [
         { id: 'legs', name: 'Table Legs', priceModifier: 0, included: true },
         { id: 'top', name: 'Table Top', priceModifier: 0, included: true },
-        { id: 'drawers', name: 'Storage Drawers', priceModifier: 20999, included: false },
-        { id: 'extension', name: 'Extension Leaf', priceModifier: 28999, included: false },
-        { id: 'glass-top', name: 'Glass Top Insert', priceModifier: 14999, included: false },
+        { id: 'drawers', name: 'Storage Drawers', priceModifier: 4499, included: false },
+        { id: 'extension', name: 'Extension Leaf', priceModifier: 5999, included: false },
+        { id: 'glass-top', name: 'Glass Top Insert', priceModifier: 2999, included: false },
       ],
     });
   });
 
   const bedItems = [
-    { name: 'Sovereign King Bed', base: 248999, desc: 'Upholstered king bed with tufted headboard', tags: ['luxury', 'king'], featured: true },
-    { name: 'Aurora Platform Bed', base: 157999, desc: 'Low-profile platform with LED ambiance', tags: ['modern', 'platform'] },
-    { name: 'Haven Canopy Bed', base: 290999, desc: 'Four-poster canopy with draping', tags: ['vintage', 'canopy'] },
-    { name: 'Drift Storage Bed', base: 182999, desc: 'Hydraulic lift storage underneath', tags: ['modern', 'storage'] },
-    { name: 'Ember Nightstand', base: 37499, desc: 'Bedside table with wireless charging', tags: ['modern', 'nightstand'] },
+    { name: 'Sovereign King Bed', base: 54999, desc: 'Upholstered king bed with tufted headboard', tags: ['luxury', 'king'], featured: true },
+    { name: 'Aurora Platform Bed', base: 32999, desc: 'Low-profile platform with LED ambiance', tags: ['modern', 'platform'] },
+    { name: 'Haven Canopy Bed', base: 64999, desc: 'Four-poster canopy with draping', tags: ['vintage', 'canopy'] },
+    { name: 'Drift Storage Bed', base: 39999, desc: 'Hydraulic lift storage underneath', tags: ['modern', 'storage'] },
+    { name: 'Ember Nightstand', base: 7499, desc: 'Bedside table with wireless charging', tags: ['modern', 'nightstand'] },
   ];
 
   bedItems.forEach((item, i) => {
@@ -196,19 +196,19 @@ function createProducts(): Product[] {
       components: [
         { id: 'frame', name: 'Bed Frame', priceModifier: 0, included: true },
         { id: 'headboard', name: 'Headboard', priceModifier: 0, included: true },
-        { id: 'storage', name: 'Under-bed Storage', priceModifier: 33299, included: false },
-        { id: 'led', name: 'LED Ambient Lighting', priceModifier: 16599, included: false },
-        { id: 'slats', name: 'Premium Slat System', priceModifier: 12499, included: true },
+        { id: 'storage', name: 'Under-bed Storage', priceModifier: 6999, included: false },
+        { id: 'led', name: 'LED Ambient Lighting', priceModifier: 2499, included: false },
+        { id: 'slats', name: 'Premium Slat System', priceModifier: 2999, included: true },
       ],
     });
   });
 
   const storageItems = [
-    { name: 'Vault Wardrobe', base: 207999, desc: 'Triple-door wardrobe with mirror', tags: ['modern', 'wardrobe'] },
-    { name: 'Archive Bookshelf', base: 74999, desc: 'Tall bookshelf with adjustable shelves', tags: ['industrial', 'bookshelf'], featured: true },
-    { name: 'Cellar Wine Cabinet', base: 141499, desc: 'Temperature-controlled wine storage', tags: ['luxury', 'wine'] },
-    { name: 'Lattice TV Unit', base: 66499, desc: 'Entertainment center with cable routing', tags: ['modern', 'tv-unit'] },
-    { name: 'Nomad Dresser', base: 107999, desc: '6-drawer dresser with soft-close', tags: ['scandinavian', 'dresser'] },
+    { name: 'Vault Wardrobe', base: 44999, desc: 'Triple-door wardrobe with mirror', tags: ['modern', 'wardrobe'] },
+    { name: 'Archive Bookshelf', base: 14999, desc: 'Tall bookshelf with adjustable shelves', tags: ['industrial', 'bookshelf'], featured: true },
+    { name: 'Cellar Wine Cabinet', base: 29999, desc: 'Temperature-controlled wine storage', tags: ['luxury', 'wine'] },
+    { name: 'Lattice TV Unit', base: 13999, desc: 'Entertainment center with cable routing', tags: ['modern', 'tv-unit'] },
+    { name: 'Nomad Dresser', base: 22999, desc: '6-drawer dresser with soft-close', tags: ['scandinavian', 'dresser'] },
   ];
 
   storageItems.forEach((item, i) => {
@@ -224,19 +224,19 @@ function createProducts(): Product[] {
       components: [
         { id: 'body', name: 'Cabinet Body', priceModifier: 0, included: true },
         { id: 'doors', name: 'Doors/Panels', priceModifier: 0, included: true },
-        { id: 'handles', name: 'Premium Handles', priceModifier: 6649, included: false },
-        { id: 'mirror', name: 'Mirror Panel', priceModifier: 16599, included: false },
-        { id: 'lighting', name: 'Interior Lighting', priceModifier: 12499, included: false },
+        { id: 'handles', name: 'Premium Handles', priceModifier: 1499, included: false },
+        { id: 'mirror', name: 'Mirror Panel', priceModifier: 3499, included: false },
+        { id: 'lighting', name: 'Interior Lighting', priceModifier: 2499, included: false },
       ],
     });
   });
 
   const officeItems = [
-    { name: 'Command Ergonomic Chair', base: 99499, desc: 'Full ergonomic with mesh back', tags: ['modern', 'ergonomic'], featured: true },
-    { name: 'Summit Standing Desk', base: 124499, desc: 'Motorized sit-stand desk', tags: ['modern', 'standing'] },
-    { name: 'Matrix Filing Cabinet', base: 45599, desc: '4-drawer lateral filing', tags: ['industrial', 'filing'] },
-    { name: 'Harbor Credenza', base: 157999, desc: 'Executive storage credenza', tags: ['luxury', 'credenza'] },
-    { name: 'Link Conference Table', base: 248999, desc: '12-person conference table', tags: ['modern', 'conference'] },
+    { name: 'Command Ergonomic Chair', base: 19999, desc: 'Full ergonomic with mesh back', tags: ['modern', 'ergonomic'], featured: true },
+    { name: 'Summit Standing Desk', base: 26999, desc: 'Motorized sit-stand desk', tags: ['modern', 'standing'] },
+    { name: 'Matrix Filing Cabinet', base: 9999, desc: '4-drawer lateral filing', tags: ['industrial', 'filing'] },
+    { name: 'Harbor Credenza', base: 32999, desc: 'Executive storage credenza', tags: ['luxury', 'credenza'] },
+    { name: 'Link Conference Table', base: 54999, desc: '12-person conference table', tags: ['modern', 'conference'] },
   ];
 
   officeItems.forEach((item, i) => {
@@ -252,9 +252,9 @@ function createProducts(): Product[] {
       components: [
         { id: 'base', name: 'Base/Frame', priceModifier: 0, included: true },
         { id: 'surface', name: 'Work Surface', priceModifier: 0, included: true },
-        { id: 'cable-mgmt', name: 'Cable Management', priceModifier: 9999, included: false },
-        { id: 'monitor-arm', name: 'Monitor Arm Mount', priceModifier: 14999, included: false },
-        { id: 'keyboard-tray', name: 'Keyboard Tray', priceModifier: 7499, included: false },
+        { id: 'cable-mgmt', name: 'Cable Management', priceModifier: 1499, included: false },
+        { id: 'monitor-arm', name: 'Monitor Arm Mount', priceModifier: 2999, included: false },
+        { id: 'keyboard-tray', name: 'Keyboard Tray', priceModifier: 1999, included: false },
       ],
     });
   });

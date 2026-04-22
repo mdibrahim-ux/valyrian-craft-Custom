@@ -1890,29 +1890,34 @@ interface Props {
   config: CustomConfig;
   category: Category;
   subtype?: string;
+  autoRotate?: boolean;
+  rotateSpeed?: number;
 }
 
-const ProductViewer3D: React.FC<Props> = ({ config, category, subtype }) => {
+const ProductViewer3D: React.FC<Props> = ({ config, category, subtype, autoRotate = true, rotateSpeed = 1.2 }) => {
   return (
     <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-secondary/20 border border-border/30">
       <Canvas
         camera={{ position: [2.2, 1.6, 2.2], fov: 38 }}
-        gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.1 }}
+        gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.15 }}
         dpr={[1, 2]}
         shadows
       >
         <color attach="background" args={['#0A0A0B']} />
         <fog attach="fog" args={['#0A0A0B', 4, 12]} />
 
-        <ambientLight intensity={0.25} />
-        <directionalLight position={[4, 8, 4]} intensity={1.2} castShadow shadow-mapSize={1024} />
-        <directionalLight position={[-3, 5, -3]} intensity={0.35} color="#FFE8C8" />
-        <spotLight position={[0, 5, 0]} intensity={0.5} angle={0.6} penumbra={0.8} color="#FFF5E0" />
+        {/* Three-point lighting for premium showroom feel */}
+        <ambientLight intensity={0.28} />
+        <directionalLight position={[4, 8, 4]} intensity={1.3} castShadow shadow-mapSize={2048} shadow-bias={-0.0005} />
+        <directionalLight position={[-3, 5, -3]} intensity={0.4} color="#FFE8C8" />
+        {/* Rim light (cool, behind) for separation */}
+        <directionalLight position={[0, 4, -6]} intensity={0.55} color="#A8C8FF" />
+        <spotLight position={[0, 5, 0]} intensity={0.55} angle={0.6} penumbra={0.8} color="#FFF5E0" />
 
         <FurnitureModel config={config} category={category} subtype={subtype} />
         <GroundPlane />
 
-        <ContactShadows position={[0, -0.51, 0]} opacity={0.5} scale={5} blur={2.5} far={2} />
+        <ContactShadows position={[0, -0.51, 0]} opacity={0.55} scale={5} blur={2.5} far={2} />
         <Environment preset="studio" />
         <OrbitControls
           enablePan={false}
@@ -1921,7 +1926,8 @@ const ProductViewer3D: React.FC<Props> = ({ config, category, subtype }) => {
           maxDistance={6}
           minPolarAngle={Math.PI * 0.1}
           maxPolarAngle={Math.PI * 0.55}
-          autoRotate={false}
+          autoRotate={autoRotate}
+          autoRotateSpeed={rotateSpeed}
           enableDamping
           dampingFactor={0.08}
         />
