@@ -2,25 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('Build React App') {
+
+        stage('Clone Code') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                git 'https://github.com/mdibrahim-ux/valyrian-craft-studio.git'
             }
         }
 
-        stage('Docker Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-react-app .'
+                sh 'docker build -t devops-demo:v1 .'
             }
         }
 
-        stage('Docker Run') {
+        stage('Remove Old Container') {
             steps {
-                sh '''
-                docker rm -f myapp || true
-                docker run -d -p 80:80 --name myapp my-react-app
-                '''
+                sh 'docker rm -f devops-container || true'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh 'docker run -d -p 80:8080 --name devops-container devops-demo:v1'
             }
         }
     }
